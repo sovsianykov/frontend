@@ -6,40 +6,62 @@ import {
   useMediaQuery,
   Menu,
   IconButton,
-  Theme,
+  Theme, Container
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import NavbarMenu from "./NavbarMenu";
 import NavbarItemMobile from "./NavbarItemMobile";
-import { navItems } from "../../ApprRoutes/AppRoutes";
+import { AppRoutes, NavItem, navItems } from "../../ApprRoutes/AppRoutes";
+import { makeStyles } from "@material-ui/styles";
+import { Link } from "react-router-dom";
+
+const useStyles = makeStyles(() =>({
+  logo : {
+    fontSize: "20px",
+    fontWeight: 400,
+    letterSpacing:"0.1rem",
+    color:"#FFF",
+    cursor: "pointer",
+    transition:".15s ease-in-out",
+    "&:hover" : {
+      color:"gold"
+    }
+  }
+
+}))
+
 
 const Navbar = () => {
+  const classes = useStyles()
   const [anchor, setAnchor] = React.useState(null);
   const open = Boolean(anchor);
 
-  const handleMenu = (event:any ) => {
+  const handleMenu = (event: any) => {
+
     setAnchor(event.currentTarget);
   };
 
-  const ref = useRef(null)
+  const ref = useRef(null);
   const onAnchorHandler = useCallback(() => {
-    console.log(ref);
     if (ref.current) {
       setAnchor(null);
     }
-  },[ref]);
+  }, [ref]);
 
   const isMobile = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("xs")
   );
   return (
     <AppBar>
+      <Container>
       <Toolbar>
-        <Typography >MERN shopping cart</Typography>
+        <Link to={AppRoutes.Nome}>
+        <Typography className={classes.logo}>MERN shopping cart</Typography>
+        </Link>
         {isMobile ? (
           <>
-            <IconButton onClick={ handleMenu}>
-              <MenuIcon  style={{ color:"#FFF"}}/>
+            <IconButton onClick={handleMenu}>
+              <MenuIcon style={{ color: "#FFF" }} />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -55,20 +77,23 @@ const Navbar = () => {
               }}
               open={open}
             >
-              {navItems.map(item =>   <NavbarItemMobile
-                ref ={ref}
-                key={item.id}
-                label={item.label}
-                path={item.path}
-                icon={item.icon}
-                onClick={onAnchorHandler}
-              />)}
+              {navItems.map((item:NavItem) => (
+                <NavbarItemMobile
+                  ref={ref}
+                  key={item.id}
+                  label={item.label}
+                  path={item.path}
+                  icon={item.icon}
+                  onClick={onAnchorHandler}
+                />
+              ))}
             </Menu>
           </>
         ) : (
           <NavbarMenu />
         )}
       </Toolbar>
+      </Container>
     </AppBar>
   );
 };

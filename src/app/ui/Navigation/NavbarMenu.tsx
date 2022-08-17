@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Box } from "@material-ui/core";
 import NavbarItem from "./NavbarItem";
 import { navItems } from "../../ApprRoutes/AppRoutes";
@@ -11,4 +11,4 @@ const NavbarMenu = () => {
   );
 };
 
-export default NavbarMenu;
+export default memo(NavbarMenu);

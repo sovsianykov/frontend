@@ -1,4 +1,4 @@
-import React, { forwardRef, FunctionComponent, ReactNode } from "react";
+import React, { forwardRef, FunctionComponent, memo, ReactNode } from "react";
 import { MenuItem, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
@@ -37,4 +37,4 @@ const NavbarItemMobile: FunctionComponent<Props> = forwardRef(
   }
 );
 
-export default NavbarItemMobile;
+export default memo(NavbarItemMobile);

@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-// ...
+import productsReducer from './ducks'
 
 export const store = configureStore({
   reducer: {
-
+      productsReducer
   },
 })
 
