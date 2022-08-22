@@ -3,7 +3,7 @@ import Page from "../../../shared/components/Page/Page";
 
 const About = () => {
   return (
-    <Page pageTitle={"About"}>
+    <Page pageTitle={"About"} centered={false}>
 
     </Page>
   );

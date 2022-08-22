@@ -8,8 +8,8 @@ class HttpService {
   getAll(url:string) {
     return request.get<ProductItem[]>(url)
   }
-  postProduct(url:string) {
-    return request.get<ProductItem[]>(url)
+  postProduct(url:string,product: ProductItem) {
+    return request.post<ProductItem>(url,product)
   }
 }
 

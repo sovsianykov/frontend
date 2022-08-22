@@ -16,6 +16,9 @@ import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() =>({
+  root : {
+    background: "#3d2f09"
+  },
   logo : {
     fontSize: "20px",
     fontWeight: 400,
@@ -52,7 +55,7 @@ const Navbar = () => {
     theme.breakpoints.down("xs")
   );
   return (
-    <AppBar>
+    <AppBar className={classes.root}>
       <Container>
       <Toolbar>
         <Link to={AppRoutes.Nome}>

@@ -6,13 +6,16 @@ import { fetchAllProducts } from "./thunks";
 const initialState:ProductsState = {
   products:[],
   isLoading: false,
-  error:""
+  error:"",
+  selectedCategory: "",
 }
 
 const productsSlice = createSlice({
   name:'products',
   initialState,
-  reducers: {},
+  reducers: { category: (state,action) => {
+    state.selectedCategory= action.payload
+    } },
   extraReducers: builder => {
     builder.addCase(fetchAllProducts.pending,(state)=>{
       state.products = [];
@@ -31,4 +34,6 @@ const productsSlice = createSlice({
   }
 })
 
-export default productsSlice.reducer
+export default productsSlice.reducer;
+export const { category } = productsSlice.actions
+

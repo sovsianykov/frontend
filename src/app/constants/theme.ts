@@ -5,7 +5,7 @@ import { createTheme } from "@material-ui/core";
 
   palette: {
     primary: {
-      main: "#394F8A",
+      main: "#3d2f09",
       light: "#5f7fd5",
        dark: "#162752",
        contrastText: "#eef1f1",

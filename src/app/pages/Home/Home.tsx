@@ -1,14 +1,15 @@
 import React from "react";
 import Page from "../../../shared/components/Page/Page";
 import { useFetchAllProducts } from "../../hooks/useFetchAllProducts";
-import { useAppSelector } from "../../hooks/useAppDispatch";
+import ProductsGrid from "./containers/ProductsGrid";
+import FiltersBar from "./containers/FiltersBar/FiltersBar";
 
 const Home = () => {
   useFetchAllProducts()
-  console.log(useAppSelector(state => state.productsReducer.products));
   return (
-    <Page pageTitle={'Home'}>
-      
+    <Page  >
+       <FiltersBar/>
+       <ProductsGrid/>
     </Page>
   );
 };

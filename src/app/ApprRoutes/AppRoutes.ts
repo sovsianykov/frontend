@@ -2,11 +2,13 @@ import { ContactMail, HomeOutlined, InfoOutlined, ShoppingCart } from "@material
 import React from "react";
 
 export enum AppRoutes {
-  Nome='/',
+  Welcome='/' ,
+  Nome='/home',
   About='/about',
   Cart= '/cart',
   Detail ='/product/:id',
-  Admin ='/admin'
+  Admin ='/admin',
+  AddProductPage='/admin/add_product',
 }
 
 export interface NavItem {

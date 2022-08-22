@@ -11,7 +11,7 @@ interface ProductProps {
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: 350,
+    width: 310,
     height: 350,
     background: theme.palette.background.paper,
     padding: theme.spacing(2),
@@ -27,14 +27,14 @@ const useStyles = makeStyles(() => ({
   },
   imageWrapper: {
     marginTop: theme.spacing(1),
-    width: 310,
+    width: 280,
     height: 200,
     overflow: "hidden",
     opacity: 0.98,
     borderRadius: 5,
     transition: "0.3s ease-in-out",
     "&:hover": {
-      width: 312,
+      width: 282,
       opacity: 1,
     },
   },
@@ -49,7 +49,6 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Product: FunctionComponent<ProductProps> = ({ product }) => {
-  console.log(product);
   const classes = useStyles();
   return (
     <Card className={classes.root} elevation={8}>
@@ -66,7 +65,7 @@ const Product: FunctionComponent<ProductProps> = ({ product }) => {
         <Button variant="contained" color="primary">
           show more
         </Button>
-        <Button color="secondary">
+        <Button color="primary">
           <p style={{ marginRight: 4 }}>add to cart </p>
           <AddShoppingCart />
         </Button>
