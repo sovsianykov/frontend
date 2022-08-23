@@ -58,7 +58,7 @@ const Navbar = () => {
     <AppBar className={classes.root}>
       <Container>
       <Toolbar>
-        <Link to={AppRoutes.Nome}>
+        <Link to={AppRoutes.Welcome}>
         <Typography className={classes.logo}>MERN shopping cart</Typography>
         </Link>
         {isMobile ? (

@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/styles";
 import { Box } from "@material-ui/core";
 import bg from '../../../@assets/img/welcome_bg.jpg'
 import EnterButton from "./EnterButton";
+import { useFetchAllProducts } from "../../hooks/useFetchAllProducts";
 
 const useStyles = makeStyles(()=>({
   root: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles(()=>({
 
 
 const Welcome = () => {
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <Box className={classes.root}>
       <EnterButton/>

@@ -53,6 +53,7 @@ const initialProduct = {
   imageUrl: "",
   category: "",
   price: 0,
+   quantity : 0,
 };
 
 const PostForm: FunctionComponent = () => {

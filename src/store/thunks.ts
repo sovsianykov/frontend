@@ -33,3 +33,19 @@ export const postProduct = createAsyncThunk(
     }
   }
 )
+
+export const deleteProduct = createAsyncThunk(
+  'products/postProduct',
+  async (id:string,{rejectWithValue})=>{
+    try {
+      const response = await httpService.deleteProduct(`products/${id}`)
+      if (response.status !== 200) {
+        console.log("Something vent wrong!!!")
+      }
+      return response.data
+
+    } catch (e:any) {
+      return   rejectWithValue(e.message)
+    }
+  }
+)

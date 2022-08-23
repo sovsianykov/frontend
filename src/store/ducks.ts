@@ -15,7 +15,8 @@ const productsSlice = createSlice({
   initialState,
   reducers: { category: (state,action) => {
     state.selectedCategory= action.payload
-    } },
+    }},
+
   extraReducers: builder => {
     builder.addCase(fetchAllProducts.pending,(state)=>{
       state.products = [];

@@ -11,6 +11,9 @@ class HttpService {
   postProduct(url:string,product: ProductItem) {
     return request.post<ProductItem>(url,product)
   }
+  deleteProduct(url:string) {
+    return request.delete(url)
+  }
 }
 
 export default new HttpService()

@@ -5,5 +5,6 @@
     imageUrl: string;
     price: number;
     category:string;
-    quantity?: number;
+    quantity: number;
+    added?:boolean;
  }

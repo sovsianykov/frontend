@@ -1,23 +1,26 @@
-import React, { FunctionComponent, memo } from "react";
+import React, { FunctionComponent, memo, useCallback, useState } from "react";
 import { ProductItem } from "../../models/models";
 import { makeStyles } from "@material-ui/styles";
-import { Box, Button, Card, Typography } from "@material-ui/core";
+import { Box, Button, Card, Theme, Typography } from "@material-ui/core";
 import { theme } from "../../../app/constants/theme";
 import { AddShoppingCart } from "@material-ui/icons";
 
 interface ProductProps {
   product: ProductItem;
+  onAddToCart: (product:ProductItem) => void;
+  added: boolean;
 }
-
-const useStyles = makeStyles(() => ({
+type StyleProps = { isAdded:boolean;}
+const useStyles = makeStyles<Theme,StyleProps>(() => ({
   root: {
     width: 310,
     height: 350,
-    background: theme.palette.background.paper,
+    background: ({isAdded})=> isAdded ? "antiquewhite":theme.palette.background.paper,
     padding: theme.spacing(2),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    margin: theme.spacing(0,"auto")
   },
   title: {
     fontSize: "18px",
@@ -48,8 +51,16 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Product: FunctionComponent<ProductProps> = ({ product }) => {
-  const classes = useStyles();
+const Product: FunctionComponent<ProductProps> = ({ product,onAddToCart,added }) => {
+
+  const [isAdded, setIsAdded] = useState(added)
+  const classes = useStyles({isAdded});
+
+  const onAddToCartHandler = useCallback(()=>{
+    onAddToCart(product)
+    setIsAdded(true)
+  },[product,onAddToCart])
+
   return (
     <Card className={classes.root} elevation={8}>
       <Typography variant="h6" className={classes.title}>
@@ -65,7 +76,7 @@ const Product: FunctionComponent<ProductProps> = ({ product }) => {
         <Button variant="contained" color="primary">
           show more
         </Button>
-        <Button color="primary">
+        <Button color="primary" onClick={onAddToCartHandler} disabled={isAdded}>
           <p style={{ marginRight: 4 }}>add to cart </p>
           <AddShoppingCart />
         </Button>
