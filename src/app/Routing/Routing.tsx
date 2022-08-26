@@ -1,12 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { AppRoutes } from "../ApprRoutes/AppRoutes";
-import Home from "../pages/Home/Home";
-import About from "../pages/About/About";
-import Cart from "../pages/Cart/containers/Cart";
-import Admin from "../pages/Admin/Admin";
-import Welcome from "../pages/Welcome/Welcome";
-import AddProductPage from "../pages/Admin/AddProductPage/AddProductPage";
+import AddProductPage from "@/pages/Admin/AddProductPage/AddProductPage";
+import Welcome from "@/pages/Welcome/Welcome";
+import Admin from "@/pages/Admin/Admin";
+import Detail from "@/pages/Detail/Detail";
+import Cart from "@/pages/Cart/containers/Cart";
+import About from "@/pages/About/About";
+import { AppRoutes } from "@/app/ApprRoutes/AppRoutes";
+import Home from "@/pages/Home/Home";
 
 const Routing = () => {
   return (
@@ -16,6 +17,7 @@ const Routing = () => {
       <Route path={AppRoutes.About} element={<About/>} />
       <Route path={AppRoutes.Cart} element={<Cart/>} />
       <Route path={AppRoutes.Admin} element={<Admin/>} />
+      <Route path={AppRoutes.Detail} element={<Detail/>} />
       <Route path={AppRoutes.AddProductPage} element={<AddProductPage/>} />
     </Routes>
   );

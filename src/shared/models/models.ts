@@ -8,3 +8,12 @@
     quantity: number;
     added?:boolean;
  }
+
+ export interface ListOptionsItem {
+     id: string;
+     label: string;
+     filterOption: string;
+ }
+ export interface ListOptions {
+     listItems: ListOptionsItem[];
+ }

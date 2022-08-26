@@ -1,40 +1,67 @@
 import { ProductsState } from "./models";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current, PayloadAction } from "@reduxjs/toolkit";
 import { fetchAllProducts } from "./thunks";
+import { ProductItem } from "@/shared/models/models";
 
-
-const initialState:ProductsState = {
-  products:[],
+const initialState: ProductsState = {
+  products: [],
   isLoading: false,
-  error:"",
+  error: "",
   selectedCategory: "",
-}
+};
 
 const productsSlice = createSlice({
-  name:'products',
+  name: "products",
   initialState,
-  reducers: { category: (state,action) => {
-    state.selectedCategory= action.payload
-    }},
+  reducers: {
+    category: (state, action) => {
+      state.selectedCategory = action.payload;
+    },
+    add: (state, action) => {
+      const newProduct = current(state).products.find(
+        (p) => p._id === action.payload._id
+      );
+      const index = current(state).products.indexOf(newProduct!);
+      console.log(newProduct);
+      state.products[index].quantity += 1;
+    },
+    remove: (state, action) => {
+      const newProduct = current(state).products.find(
+        (p) => p._id === action.payload._id
+      );
+      const index = current(state).products.indexOf(newProduct!);
+      state.products[index].quantity -= 1;
+    },
+    removeFromCart: (state, action) => {
+      const newProduct = current(state).products.find(
+        (p) => p._id === action.payload._id
+      );
+      const index = current(state).products.indexOf(newProduct!);
+      state.products[index].quantity = 0;
+    },
+  },
 
-  extraReducers: builder => {
-    builder.addCase(fetchAllProducts.pending,(state)=>{
+  extraReducers: (builder) => {
+    builder.addCase(fetchAllProducts.pending, (state) => {
       state.products = [];
       state.isLoading = true;
-    })
-    builder.addCase(fetchAllProducts.fulfilled,(state,action)=>{
-      state.products = action.payload;
-      state.isLoading = false;
-      state.error = '';
-    })
-    builder.addCase(fetchAllProducts.rejected,(state,action)=>{
+    });
+    builder.addCase(
+      fetchAllProducts.fulfilled,
+      (state, action: PayloadAction<ProductItem[]>) => {
+        state.products = action.payload;
+        state.isLoading = false;
+        state.error = "";
+      }
+    );
+    builder.addCase(fetchAllProducts.rejected, (state, action) => {
       state.products = [];
       state.isLoading = false;
       state.error = action.payload;
-    })
-  }
-})
+    });
+  },
+});
 
 export default productsSlice.reducer;
-export const { category } = productsSlice.actions
+export const { category, add, remove, removeFromCart } = productsSlice.actions;
 

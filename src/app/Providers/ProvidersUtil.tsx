@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { ThemeProvider } from "@material-ui/core";
-import { theme } from "../constants/theme";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "../../store/store";
+import { store } from "@/store/store";
+import { theme } from "@/app/constants/theme";
 
 interface Props {
   children: JSX.Element[]

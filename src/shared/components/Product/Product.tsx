@@ -2,8 +2,9 @@ import React, { FunctionComponent, memo, useCallback, useState } from "react";
 import { ProductItem } from "../../models/models";
 import { makeStyles } from "@material-ui/styles";
 import { Box, Button, Card, Theme, Typography } from "@material-ui/core";
-import { theme } from "../../../app/constants/theme";
+import { theme } from "@/app/constants/theme";
 import { AddShoppingCart } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 interface ProductProps {
   product: ProductItem;
@@ -35,6 +36,7 @@ const useStyles = makeStyles<Theme,StyleProps>(() => ({
     overflow: "hidden",
     opacity: 0.98,
     borderRadius: 5,
+    background:"#000",
     transition: "0.3s ease-in-out",
     "&:hover": {
       width: 282,
@@ -73,9 +75,11 @@ const Product: FunctionComponent<ProductProps> = ({ product,onAddToCart,added })
         price : ${product.price}
       </Box>
       <Box className={classes.actionBlock}>
-        <Button variant="contained" color="primary">
-          show more
-        </Button>
+        <Link to={`/product/${product._id}`}>
+          <Button variant="contained" color="primary">
+            show more
+          </Button>
+        </Link>
         <Button color="primary" onClick={onAddToCartHandler} disabled={isAdded}>
           <p style={{ marginRight: 4 }}>add to cart </p>
           <AddShoppingCart />

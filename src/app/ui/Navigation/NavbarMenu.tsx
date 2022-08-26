@@ -5,8 +5,17 @@ import { navItems } from "../../ApprRoutes/AppRoutes";
 
 const NavbarMenu = () => {
   return (
-    <Box sx={{ display:"flex",marginLeft: "auto",width: 300, justifyContent:"space-between"}} >
-      {navItems.map(item => <NavbarItem label={item.label} path={item.path} key={item.id}/>)}
+    <Box
+      sx={{
+        display: "flex",
+        marginLeft: "auto",
+        width: 300,
+        justifyContent: "space-between",
+      }}
+    >
+      {navItems.map((item) => (
+        <NavbarItem label={item.label} path={item.path} key={item.id} />
+      ))}
     </Box>
   );
 };

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import httpService from "../api/httpService";
-import { ProductItem } from "../shared/models/models";
+import { ProductItem } from "@/shared/models/models";
 
 
 export const fetchAllProducts = createAsyncThunk(
@@ -14,6 +14,7 @@ export const fetchAllProducts = createAsyncThunk(
      return response.data
 
    } catch (e:any) {
+     console.log(e.message);
      return   rejectWithValue(e.message)
    }
  }

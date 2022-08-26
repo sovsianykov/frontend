@@ -10,10 +10,12 @@ interface PageProps {
   centered?: boolean;
   background?: boolean;
   rowDirection?: boolean;
+  withoutBg?:boolean;
 }
 interface StyleProps {
   centered?: boolean;
   rowDirection?: boolean;
+  withoutBg?:boolean;
 }
 
 const useStyles = makeStyles<Theme, StyleProps>((theme) => ({
@@ -22,7 +24,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme) => ({
     display: "flex",
     flexDirection: (styleProps) => (styleProps.rowDirection ? "row" : "column"),
     alignItems: (styleProps) => (styleProps.centered ? "center" : "flex-start"),
-    backgroundImage: `url(${bg})`,
+    background: ({withoutBg})=> withoutBg ? "transparent": `url(${bg})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   },
@@ -40,10 +42,12 @@ const Page: FunctionComponent<PageProps> = ({
   pageTitle,
   centered,
   rowDirection,
+  withoutBg,
 }) => {
   const stylePops = {
     centered,
     rowDirection,
+    withoutBg
   };
   const classes = useStyles(stylePops);
 
