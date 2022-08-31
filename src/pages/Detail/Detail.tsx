@@ -1,12 +1,10 @@
 import React from "react";
 import Page from "@/shared/components/Page/Page";
-import { useParams } from "react-router-dom";
 import { Box, Typography } from "@material-ui/core";
-import { useAppSelector } from "@/app/hooks/useAppDispatch";
-import { filteredProducts } from "@/store/selectors";
 import { makeStyles } from "@material-ui/styles";
 import { theme } from "@/app/constants/theme";
 import BackToHomeBtn from "@/shared/components/BackToHomeBtn/BackToHomeBtn";
+import { useProduct } from "@/app/hooks/useProduct";
 
 const useStyles = makeStyles(() =>({
   root: {
@@ -15,18 +13,23 @@ const useStyles = makeStyles(() =>({
     padding: theme.spacing(0.5),
     marginBottom: theme.spacing(3)
   },
+  leftBlock: {
+    width: "50%",
+    display:'flex',
+    justifyContent:"center"
+  },
   imageWrapper: {
-    maxWidth: 400,
-    height: 'auto',
-    maxHeight: 500,
+    width: 400,
+    height: 250,
     overflow:'hidden',
     border: '2px solid #FFF',
+    background: theme.palette.primary.main
 
   },
   image: {
     display:"block",
     width:"100%",
-    objectFit:"contain"
+    // objectFit:"contain"
   },
   text: {
     width: "50%",
@@ -43,16 +46,16 @@ const useStyles = makeStyles(() =>({
 
 const Detail = () => {
   const classes = useStyles()
-  const { id } = useParams()
-  const { products } = useAppSelector(filteredProducts)
-  const product = products.find(p => p._id === id)
+  const { product  } = useProduct()
 
   return (
     <Page pageTitle={product!.title} centered  >
       <Box className={classes.root}>
+        <Box className={classes.leftBlock}>
        <Box className={classes.imageWrapper}>
          <img src={product!.imageUrl} alt={product!.title} className={classes.image}/>
        </Box>
+        </Box>
        <Box>
          <Box className={classes.text}>
          <Typography variant='body1' color='textPrimary'>

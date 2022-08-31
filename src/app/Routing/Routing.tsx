@@ -8,6 +8,7 @@ import Cart from "@/pages/Cart/containers/Cart";
 import About from "@/pages/About/About";
 import { AppRoutes } from "@/app/ApprRoutes/AppRoutes";
 import Home from "@/pages/Home/Home";
+import { UpdateProductPage } from "@/pages/Admin/UpdateProductPage/UpdateProductPage";
 
 const Routing = () => {
   return (
@@ -19,6 +20,7 @@ const Routing = () => {
       <Route path={AppRoutes.Admin} element={<Admin/>} />
       <Route path={AppRoutes.Detail} element={<Detail/>} />
       <Route path={AppRoutes.AddProductPage} element={<AddProductPage/>} />
+      <Route path={AppRoutes.UpdateProductPage} element={<UpdateProductPage/>} />
     </Routes>
   );
 };

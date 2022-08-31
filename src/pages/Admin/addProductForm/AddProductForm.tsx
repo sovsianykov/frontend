@@ -16,9 +16,16 @@ import {
 import { makeStyles } from "@material-ui/styles";
 import { theme } from "@/app/constants/theme";
 import { useAppDispatch } from "@/app/hooks/useAppDispatch";
-import { postProduct } from "@/store/thunks";
+import { postProduct, updateProduct } from "@/store/thunks";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "@/app/ApprRoutes/AppRoutes";
+import { ProductItem } from "@/shared/models/models";
+
+interface FormProps {
+  initialProduct:ProductItem;
+  update?: boolean;
+}
+
 
 
 const useStyles = makeStyles(()=>({
@@ -48,17 +55,7 @@ const useStyles = makeStyles(()=>({
 }))
 
 
-const initialProduct = {
-  _id: "",
-  title: "",
-  desc: "",
-  imageUrl: "",
-  category: "",
-  price: 0,
-  quantity : 0,
-};
-
-const PostForm: FunctionComponent = () => {
+const PostForm: FunctionComponent<FormProps> = ({initialProduct,update}) => {
   const [titleDirty, setTitleDirty] = useState<boolean>(false);
   const [title, setTitle] = useState(initialProduct.title);
   const [imageUrl, setImageUrl] = useState(initialProduct.imageUrl);
@@ -122,8 +119,8 @@ const PostForm: FunctionComponent = () => {
         price: price,
         quantity : 0,
       };
-      if (!!desc && !!title && !!category && !!price && !!imageUrl) {
-        dispatch(postProduct(newProduct))
+      if (!!desc && !!title && !!category && !!price && !!imageUrl ) {
+       update ? dispatch(updateProduct(newProduct))  :  dispatch(postProduct(newProduct))
         setTitle("");
         setDesc("");
         setImageUrl("");

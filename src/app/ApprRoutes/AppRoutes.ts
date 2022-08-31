@@ -9,6 +9,7 @@ export enum AppRoutes {
   Detail ='/product/:id',
   Admin ='/admin',
   AddProductPage='/admin/add_product',
+  UpdateProductPage='/admin/update_product/:id',
 }
 
 export interface NavItem {

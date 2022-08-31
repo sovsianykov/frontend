@@ -6,6 +6,7 @@ import { Box, Typography } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
 import { theme } from "@/app/constants/theme";
 import { deleteProduct } from "@/store/thunks";
+import { LinearProgress } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
   cell: {
@@ -20,7 +21,9 @@ const useStyles = makeStyles(() => ({
 
 const ProductsTable = () => {
   useFetchAllProducts();
-  const { products } = useAppSelector((state) => state.productsReducer);
+  const { products, isLoading } = useAppSelector(
+    (state) => state.productsReducer
+  );
   const classes = useStyles();
   const dispatch = useAppDispatch();
   const onDeleteHandler = useCallback(
@@ -32,28 +35,33 @@ const ProductsTable = () => {
 
   return (
     <Box>
-      <Typography variant="h6" align="center">
+      <Typography variant="h6" align="center" mb={2}>
         All products
       </Typography>
-      <table>
-        <thead>
-          <tr>
-            <th className={classes.cell}>Title</th>
-            <th className={classes.cell}>Category</th>
-            <th className={classes.cell}>Price</th>
-            <th className={classes.cell}>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((product) => (
-            <Row
-              product={product}
-              key={product._id}
-              onDelete={onDeleteHandler}
-            />
-          ))}
-        </tbody>
-      </table>
+      {isLoading ? (
+        <LinearProgress />
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th className={classes.cell}>Title</th>
+              <th className={classes.cell}>Category</th>
+              <th className={classes.cell}>Price</th>
+              <th className={classes.cell}>Delete</th>
+              <th className={classes.cell}>Update</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product) => (
+              <Row
+                product={product}
+                key={product._id}
+                onDelete={onDeleteHandler}
+              />
+            ))}
+          </tbody>
+        </table>
+      )}
     </Box>
   );
 };

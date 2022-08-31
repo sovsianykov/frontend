@@ -1,11 +1,10 @@
 import React, { FunctionComponent } from "react";
 import { Box, Container, Theme } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import { theme } from "../../../app/constants/theme";
 import bg from "../../../@assets/img/bg_brown.jpg";
 
 interface PageProps {
-  children: JSX.Element | JSX.Element[];
+  children?: JSX.Element | JSX.Element[];
   pageTitle?: string;
   centered?: boolean;
   background?: boolean;
