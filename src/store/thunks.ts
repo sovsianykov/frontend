@@ -13,9 +13,10 @@ export const fetchAllProducts = createAsyncThunk(
      }
      return response.data
 
-   } catch (e:any) {
-     console.log(e.message);
-     return   rejectWithValue(e.message)
+   } catch (e) {
+     const error = e as Error
+     console.log(error.message);
+     return   rejectWithValue(error.message)
    }
  }
 )
@@ -29,8 +30,9 @@ export const postProduct = createAsyncThunk(
       }
       return response.data
 
-    } catch (e:any) {
-      return   rejectWithValue(e.message)
+    } catch (e) {
+      const error = e as Error
+      return   rejectWithValue(error.message)
     }
   }
 )

@@ -14,25 +14,29 @@ const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    category: (state, action) => {
+    reset: (state) => {
+      state.error = "";
+      state.selectedCategory = "";
+      state.isLoading = false;
+    },
+    category: (state, action: PayloadAction<string>) => {
       state.selectedCategory = action.payload;
     },
-    add: (state, action) => {
+    add: (state, action: PayloadAction<ProductItem>) => {
       const newProduct = current(state).products.find(
         (p) => p._id === action.payload._id
       );
       const index = current(state).products.indexOf(newProduct!);
-      console.log(newProduct);
       state.products[index].quantity += 1;
     },
-    remove: (state, action) => {
+    remove: (state, action: PayloadAction<ProductItem>) => {
       const newProduct = current(state).products.find(
         (p) => p._id === action.payload._id
       );
       const index = current(state).products.indexOf(newProduct!);
       state.products[index].quantity -= 1;
     },
-    removeFromCart: (state, action) => {
+    removeFromCart: (state, action: PayloadAction<ProductItem>) => {
       const newProduct = current(state).products.find(
         (p) => p._id === action.payload._id
       );
@@ -63,5 +67,4 @@ const productsSlice = createSlice({
 });
 
 export default productsSlice.reducer;
-export const { category, add, remove, removeFromCart } = productsSlice.actions;
-
+export const { category, add, remove, removeFromCart,reset } = productsSlice.actions;

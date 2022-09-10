@@ -9,16 +9,18 @@ import About from "@/pages/About/About";
 import { AppRoutes } from "@/app/ApprRoutes/AppRoutes";
 import Home from "@/pages/Home/Home";
 import { UpdateProductPage } from "@/pages/Admin/UpdateProductPage/UpdateProductPage";
+import SignUp from "@/pages/SignUp/SignUp";
 
 const Routing = () => {
   return (
     <Routes>
       <Route path={AppRoutes.Welcome} element={<Welcome/>} />
-      <Route path={AppRoutes.Nome} element={<Home/>} />
+      <Route path={AppRoutes.Home} element={<Home/>} />
       <Route path={AppRoutes.About} element={<About/>} />
       <Route path={AppRoutes.Cart} element={<Cart/>} />
       <Route path={AppRoutes.Admin} element={<Admin/>} />
       <Route path={AppRoutes.Detail} element={<Detail/>} />
+      <Route path={AppRoutes.SignUp} element={<SignUp/>} />
       <Route path={AppRoutes.AddProductPage} element={<AddProductPage/>} />
       <Route path={AppRoutes.UpdateProductPage} element={<UpdateProductPage/>} />
     </Routes>

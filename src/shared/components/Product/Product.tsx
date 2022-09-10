@@ -15,7 +15,7 @@ type StyleProps = { isAdded:boolean;}
 const useStyles = makeStyles<Theme,StyleProps>(() => ({
   root: {
     width: 310,
-    height: 350,
+    height: 300,
     background: ({isAdded})=> isAdded ? "antiquewhite":theme.palette.background.paper,
     padding: theme.spacing(2),
     display: "flex",

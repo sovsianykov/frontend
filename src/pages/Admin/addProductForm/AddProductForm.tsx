@@ -17,9 +17,10 @@ import { makeStyles } from "@material-ui/styles";
 import { theme } from "@/app/constants/theme";
 import { useAppDispatch } from "@/app/hooks/useAppDispatch";
 import { postProduct, updateProduct } from "@/store/thunks";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppRoutes } from "@/app/ApprRoutes/AppRoutes";
 import { ProductItem } from "@/shared/models/models";
+import { toast } from "react-toastify";
 
 interface FormProps {
   initialProduct:ProductItem;
@@ -65,6 +66,8 @@ const PostForm: FunctionComponent<FormProps> = ({initialProduct,update}) => {
   const titleRef = React.useRef<HTMLInputElement | null>(null);
   const descRef = React.useRef<HTMLTextAreaElement | null>(null);
 
+
+  const navigate = useNavigate()
   const classes = useStyles()
 
  const dispatch = useAppDispatch()
@@ -121,12 +124,15 @@ const PostForm: FunctionComponent<FormProps> = ({initialProduct,update}) => {
       };
       if (!!desc && !!title && !!category && !!price && !!imageUrl ) {
        update ? dispatch(updateProduct(newProduct))  :  dispatch(postProduct(newProduct))
+        toast('Product was created !')
+        navigate(AppRoutes.Home)
         setTitle("");
         setDesc("");
         setImageUrl("");
         setCategory("");
         setPrice(0);
         setTitleDirty(false);
+
       } else {
         alert("Please, fill the form!");
       }
@@ -187,7 +193,7 @@ const PostForm: FunctionComponent<FormProps> = ({initialProduct,update}) => {
         name="price"
         onChange={onPriceInputHandler}
       />
-      <Link to={AppRoutes.Nome}>
+      <Link to={AppRoutes.Home}>
         <Button style={{ marginTop: 1 }} onClick={onSubmitHandler}>
           submit
         </Button>

@@ -2,16 +2,11 @@ import React from "react";
 import Page from "@/shared/components/Page/Page";
 import ProductsGrid from "./containers/ProductsGrid";
 import FiltersBar from "./containers/FiltersBar/FiltersBar";
-// import { ListOptionsItem } from "@/shared/models/models";
+import { useFetchAllProducts } from "@/app/hooks/useFetchAllProducts";
 
-// const listOptions:ListOptionsItem[] = [
-//   { id: '0', label: "all" , filterOption:'' },
-//   { id: '1', label: "photo" , filterOption:'photo' },
-//   { id: '2', label: "watches" , filterOption:'watches' },
-//   { id: '3', label: "phones" , filterOption:'phones' },
-// ]
 
 const Home = () => {
+  useFetchAllProducts()
   return (
     <Page >
        <FiltersBar/>

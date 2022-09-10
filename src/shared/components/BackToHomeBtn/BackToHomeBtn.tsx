@@ -44,7 +44,7 @@ const useStyles = makeStyles(()=>({
 const BackToHomeBtn:FunctionComponent<BackToHomeBtnProps> = ({title}) => {
   const classes = useStyles()
   return (
-    <Link to={AppRoutes.Nome}>
+    <Link to={AppRoutes.Home}>
       <button type='button' className={classes.root}>
         <ArrowLeft/>
         {title}

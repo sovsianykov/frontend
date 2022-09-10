@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
-import { AppRoutes } from "../../app/ApprRoutes/AppRoutes";
+import { AppRoutes } from "@/app/ApprRoutes/AppRoutes";
 
 
 interface EnterButtonProps {
@@ -42,7 +42,7 @@ const useStyles = makeStyles(()=>({
 const EnterButton:FunctionComponent<EnterButtonProps> = ({title}) => {
   const classes = useStyles()
   return (
-    <Link to={AppRoutes.Nome}>
+    <Link to={AppRoutes.Home}>
       <button type='button' className={classes.root}>
         {title}
       </button>
