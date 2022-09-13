@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const request = axios.create({
-  baseURL:'/api/',
+  baseURL:'https://mern-fullstack-shop.herokuapp.com/api/',
   headers: {
     'Content-Type': 'application/json',
   },
