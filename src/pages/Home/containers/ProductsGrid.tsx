@@ -1,9 +1,10 @@
 import React, { memo, useCallback } from "react";
-import { useAppDispatch, useAppSelector } from "@/app/hooks/useAppDispatch";
 import { Grid, LinearProgress } from "@material-ui/core";
-import { filteredProducts } from "@/store/selectors";
-import { add } from "@/store/ducks";
-import Product from "@/shared/components/Product/Product";
+import { filteredProducts } from "../../../store/selectors";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks/useAppDispatch";
+import { add } from "../../../store/ducks";
+import Product from "../../../shared/components/Product/Product";
+
 
 const ProductsGrid = () => {
   const dispatch = useAppDispatch()

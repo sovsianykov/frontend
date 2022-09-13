@@ -1,6 +1,7 @@
 import React from "react";
-import BackToHomeBtn from "@/shared/components/BackToHomeBtn/BackToHomeBtn";
-import Page from "@/shared/components/Page/Page";
+import Page from "../../../shared/components/Page/Page";
+import BackToHomeBtn from "../../../shared/components/BackToHomeBtn/BackToHomeBtn";
+
 
 const EmptyCart = () => {
   return (

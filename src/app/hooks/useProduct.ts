@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "@/app/hooks/useAppDispatch";
-import { filteredProducts } from "@/store/selectors";
+import { useAppSelector } from "./useAppDispatch";
+import { filteredProducts } from "../../store/selectors";
 
 
 export const useProduct = () =>{

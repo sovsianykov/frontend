@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
-import { AppRoutes } from "@/app/ApprRoutes/AppRoutes";
-import { theme } from "@/app/constants/theme";
 import { ArrowLeft } from "@material-ui/icons";
+import { AppRoutes } from "../../../app/ApprRoutes/AppRoutes";
+import { theme } from "../../../app/constants/theme";
 
 
 interface BackToHomeBtnProps {

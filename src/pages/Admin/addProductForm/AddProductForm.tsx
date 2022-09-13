@@ -14,13 +14,14 @@ import {
   TextareaAutosize,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import { theme } from "@/app/constants/theme";
-import { useAppDispatch } from "@/app/hooks/useAppDispatch";
-import { postProduct, updateProduct } from "@/store/thunks";
 import { Link, useNavigate } from "react-router-dom";
-import { AppRoutes } from "@/app/ApprRoutes/AppRoutes";
-import { ProductItem } from "@/shared/models/models";
+
 import { toast } from "react-toastify";
+import { ProductItem } from "../../../shared/models/models";
+import { theme } from "../../../app/constants/theme";
+import { useAppDispatch } from "../../../app/hooks/useAppDispatch";
+import { postProduct, updateProduct } from "../../../store/thunks";
+import { AppRoutes } from "../../../app/ApprRoutes/AppRoutes";
 
 interface FormProps {
   initialProduct:ProductItem;

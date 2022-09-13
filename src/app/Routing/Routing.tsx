@@ -1,15 +1,17 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import AddProductPage from "@/pages/Admin/AddProductPage/AddProductPage";
-import Welcome from "@/pages/Welcome/Welcome";
-import Admin from "@/pages/Admin/Admin";
-import Detail from "@/pages/Detail/Detail";
-import Cart from "@/pages/Cart/containers/Cart";
-import About from "@/pages/About/About";
-import { AppRoutes } from "@/app/ApprRoutes/AppRoutes";
-import Home from "@/pages/Home/Home";
-import { UpdateProductPage } from "@/pages/Admin/UpdateProductPage/UpdateProductPage";
-import SignUp from "@/pages/SignUp/SignUp";
+import { AppRoutes } from "../ApprRoutes/AppRoutes";
+import Welcome from "../../pages/Welcome/Welcome";
+import Home from "../../pages/Home/Home";
+import About from "../../pages/About/About";
+import Cart from "../../pages/Cart/containers/Cart";
+import Admin from "../../pages/Admin/Admin";
+import Detail from "../../pages/Detail/Detail";
+import SignUp from "../../pages/SignUp/SignUp";
+import AddProductPage from "../../pages/Admin/AddProductPage/AddProductPage";
+import { UpdateProductPage } from "../../pages/Admin/UpdateProductPage/UpdateProductPage";
+
+
 
 const Routing = () => {
   return (

@@ -1,11 +1,11 @@
 import React, { memo } from "react";
-import Page from "@/shared/components/Page/Page";
 import { Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import { theme } from "@/app/constants/theme";
-import BackToHomeBtn from "@/shared/components/BackToHomeBtn/BackToHomeBtn";
-import { useProduct } from "@/app/hooks/useProduct";
 import { Theme, useMediaQuery } from "@mui/material";
+import { theme } from "../../app/constants/theme";
+import { useProduct } from "../../app/hooks/useProduct";
+import Page from "../../shared/components/Page/Page";
+import BackToHomeBtn from "../../shared/components/BackToHomeBtn/BackToHomeBtn";
 
 type StyleProps = { matches: boolean };
 

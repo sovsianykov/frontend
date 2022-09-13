@@ -1,10 +1,10 @@
 import React, { memo } from "react";
-import { useAppSelector } from "@/app/hooks/useAppDispatch";
-import { cartSelector } from "@/store/selectors";
 import EmptyCart from "../components/EmptyCart";
 import { Grid, Typography } from "@material-ui/core";
 import CartItem from "../components/CartItem";
-import Page from "@/shared/components/Page/Page";
+import { useAppSelector } from "../../../app/hooks/useAppDispatch";
+import { cartSelector } from "../../../store/selectors";
+import Page from "../../../shared/components/Page/Page";
 
 const Cart = () => {
   const { products, subTotal } = useAppSelector(cartSelector);

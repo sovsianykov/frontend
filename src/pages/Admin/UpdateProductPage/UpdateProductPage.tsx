@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from "react";
-import Page from "@/shared/components/Page/Page";
-import AddProductForm from "@/pages/Admin/addProductForm/AddProductForm";
-import { useProduct } from "@/app/hooks/useProduct";
+import { useProduct } from "../../../app/hooks/useProduct";
+import Page from "../../../shared/components/Page/Page";
+import AddProductForm from "../addProductForm/AddProductForm";
+
 
 
 

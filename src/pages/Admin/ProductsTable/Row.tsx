@@ -1,12 +1,12 @@
 import React, { FunctionComponent, memo, useCallback } from "react";
-import { ProductItem } from "@/shared/models/models";
 import { IconButton } from "@mui/material";
 import { Remove, Update } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/styles";
-import { theme } from "@/app/constants/theme";
-import { useAppDispatch } from "@/app/hooks/useAppDispatch";
-import { fetchAllProducts } from "@/store/thunks";
 import { Link } from "react-router-dom";
+import { ProductItem } from "../../../shared/models/models";
+import { theme } from "../../../app/constants/theme";
+import { useAppDispatch } from "../../../app/hooks/useAppDispatch";
+import { fetchAllProducts } from "../../../store/thunks";
 
 export interface RowProps {
   product: ProductItem;

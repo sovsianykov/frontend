@@ -1,11 +1,12 @@
 import React, { FunctionComponent, memo, useCallback } from "react";
 import { makeStyles } from "@material-ui/styles";
-import { theme } from "@/app/constants/theme";
 import { Box, IconButton, Typography } from "@material-ui/core";
-import { ProductItem } from "@/shared/models/models";
 import { Add, Remove, RemoveShoppingCart } from "@material-ui/icons";
-import { useAppDispatch } from "@/app/hooks/useAppDispatch";
-import { add, remove, removeFromCart } from "@/store/ducks";
+import { ProductItem } from "../../../shared/models/models";
+import { theme } from "../../../app/constants/theme";
+import { useAppDispatch } from "../../../app/hooks/useAppDispatch";
+import { add, remove, removeFromCart } from "../../../store/ducks";
+
 
 interface CartItemProps {
   product: ProductItem;

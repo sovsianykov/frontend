@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
-import { AppRoutes } from "@/app/ApprRoutes/AppRoutes";
+import { AppRoutes } from "../../app/ApprRoutes/AppRoutes";
 
 
 interface EnterButtonProps {

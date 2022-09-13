@@ -1,6 +1,6 @@
 import React from "react";
-import Page from "@/shared/components/Page/Page";
-import SignupForm from "@/pages/SignUp/SignupForm";
+import SignupForm from "./SignupForm";
+import Page from "../../shared/components/Page/Page";
 
 const SignUp = () => {
   return (

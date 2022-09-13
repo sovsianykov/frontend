@@ -1,12 +1,12 @@
 import React, { memo, useCallback } from "react";
-import { useAppDispatch, useAppSelector } from "@/app/hooks/useAppDispatch";
 import Row from "./Row";
-import { useFetchAllProducts } from "@/app/hooks/useFetchAllProducts";
 import { Box, Typography } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
-import { theme } from "@/app/constants/theme";
-import { deleteProduct } from "@/store/thunks";
 import { LinearProgress } from "@material-ui/core";
+import { theme } from "../../../app/constants/theme";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks/useAppDispatch";
+import { useFetchAllProducts } from "../../../app/hooks/useFetchAllProducts";
+import { deleteProduct } from "../../../store/thunks";
 
 const useStyles = makeStyles(() => ({
   cell: {
@@ -52,7 +52,7 @@ const ProductsTable = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
+            {products.map((product: { _id: React.Key | null | undefined; }) => (
               <Row
                 product={product}
                 key={product._id}

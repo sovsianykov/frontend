@@ -2,9 +2,9 @@ import React, { FunctionComponent, memo, useCallback, useState } from "react";
 import { ProductItem } from "../../models/models";
 import { makeStyles } from "@material-ui/styles";
 import { Box, Button, Card, Theme, Typography } from "@material-ui/core";
-import { theme } from "@/app/constants/theme";
 import { AddShoppingCart } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import { theme } from "../../../app/constants/theme";
 
 interface ProductProps {
   product: ProductItem;

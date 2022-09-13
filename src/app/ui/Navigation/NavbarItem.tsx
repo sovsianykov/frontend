@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { useAppSelector } from "../../hooks/useAppDispatch";
-import { cartSelector } from "@/store/selectors";
+import { cartSelector } from "../../../store/selectors";
 
 interface NavbarItemProps {
   label: string;

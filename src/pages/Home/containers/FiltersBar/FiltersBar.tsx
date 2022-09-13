@@ -1,7 +1,8 @@
 import React, { useCallback } from "react";
 import { Box, Button } from "@material-ui/core";
-import { useAppDispatch } from "@/app/hooks/useAppDispatch";
-import { category } from "@/store/ducks";
+import { useAppDispatch } from "../../../../app/hooks/useAppDispatch";
+import { category } from "../../../../store/ducks";
+
 
 const FiltersBar = () => {
  const dispatch = useAppDispatch()
