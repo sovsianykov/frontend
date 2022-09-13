@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "./store";
-import { ProductItem } from "@/shared/models/models";
+import { ProductItem } from "../shared/models/models";
 
 
 const getProducts =( state:RootState) => state.productsReducer

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import httpService from "../api/httpService";
-import { ProductItem } from "@/shared/models/models";
+import { ProductItem } from "../shared/models/models";
 
 
 export const fetchAllProducts = createAsyncThunk(

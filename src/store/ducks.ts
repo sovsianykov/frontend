@@ -1,7 +1,7 @@
 import { ProductsState } from "./models";
 import { createSlice, current, PayloadAction } from "@reduxjs/toolkit";
 import { fetchAllProducts } from "./thunks";
-import { ProductItem } from "@/shared/models/models";
+import { ProductItem } from "../shared/models/models";
 
 const initialState: ProductsState = {
   products: [],
@@ -67,4 +67,4 @@ const productsSlice = createSlice({
 });
 
 export default productsSlice.reducer;
-export const { category, add, remove, removeFromCart,reset } = productsSlice.actions;
+export const { category, add, remove, removeFromCart } = productsSlice.actions;

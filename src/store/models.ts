@@ -1,4 +1,4 @@
-import { ProductItem } from "@/shared/models/models";
+import { ProductItem } from "../shared/models/models";
 
 export interface ProductsState {
   products: ProductItem[];
