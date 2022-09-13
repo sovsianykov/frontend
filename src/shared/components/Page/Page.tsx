@@ -23,9 +23,8 @@ const useStyles = makeStyles<Theme, StyleProps>((theme) => ({
     display: "flex",
     flexDirection: (styleProps) => (styleProps.rowDirection ? "row" : "column"),
     alignItems: (styleProps) => (styleProps.centered ? "center" : "flex-start"),
-    background: ({withoutBg})=> withoutBg ? "transparent": `url(${bg})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
+    background: ({withoutBg})=> withoutBg ? "transparent": `url(${bg}) center center/cover`,
+
   },
   titleBlock: {
     margin: "0 auto",

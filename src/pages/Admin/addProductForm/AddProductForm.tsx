@@ -64,6 +64,7 @@ const PostForm: FunctionComponent<FormProps> = ({initialProduct,update}) => {
   const [category, setCategory] = useState(initialProduct.category);
   const [desc, setDesc] = useState(initialProduct.desc);
   const [price, setPrice] = useState(initialProduct.price);
+  const [password, setPassword] = useState('');
   const titleRef = React.useRef<HTMLInputElement | null>(null);
   const descRef = React.useRef<HTMLTextAreaElement | null>(null);
 
@@ -123,6 +124,8 @@ const PostForm: FunctionComponent<FormProps> = ({initialProduct,update}) => {
         price: price,
         quantity : 0,
       };
+       const sign =  prompt('input the password')
+      if (sign === process.env.REACT_APP_SECRET) {
       if (!!desc && !!title && !!category && !!price && !!imageUrl ) {
        update ? dispatch(updateProduct(newProduct))  :  dispatch(postProduct(newProduct))
         toast('Product was created !')
@@ -135,9 +138,10 @@ const PostForm: FunctionComponent<FormProps> = ({initialProduct,update}) => {
         setTitleDirty(false);
 
       } else {
-        alert("Please, fill the form!");
+        toast("Please, fill the form!");
       }
-    },
+    } else {
+        toast('incorrect password') } } ,
     [desc, title, imageUrl, price,category]
   );
   return (

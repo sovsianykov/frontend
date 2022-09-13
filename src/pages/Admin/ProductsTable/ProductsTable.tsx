@@ -7,6 +7,7 @@ import { theme } from "../../../app/constants/theme";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks/useAppDispatch";
 import { useFetchAllProducts } from "../../../app/hooks/useFetchAllProducts";
 import { deleteProduct } from "../../../store/thunks";
+import { ProductItem } from "../../../shared/models/models";
 
 const useStyles = makeStyles(() => ({
   cell: {
@@ -52,7 +53,7 @@ const ProductsTable = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product: { _id: React.Key | null | undefined; }) => (
+            {products.map((product: ProductItem) => (
               <Row
                 product={product}
                 key={product._id}
