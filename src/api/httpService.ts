@@ -1,6 +1,6 @@
 
 import {request} from "./http-common";
-import { ProductItem } from "@/shared/models/models";
+import { ProductItem } from "../shared/models/models";
 
 
 class HttpService {

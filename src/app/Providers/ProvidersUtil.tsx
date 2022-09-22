@@ -14,11 +14,11 @@ interface Props {
 const ProvidersUtil:FunctionComponent<Props> = ({children}) => {
   return (
     <Provider store={store}>
-    <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         <BrowserRouter>
           {children}
         </BrowserRouter>
-    </ThemeProvider>
+      </ThemeProvider>
     </Provider>
   );
 };
