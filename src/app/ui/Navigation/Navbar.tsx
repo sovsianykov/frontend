@@ -39,9 +39,8 @@ const useStyles = makeStyles<Theme,StyleProps>(() =>({
 
 const Navbar:FunctionComponent = () => {
 
-  const { pathname}  = useLocation()
+  const { pathname }  = useLocation()
   const classes = useStyles({pathname})
-
 
   const [anchor, setAnchor] = React.useState(null);
   const open = Boolean(anchor);

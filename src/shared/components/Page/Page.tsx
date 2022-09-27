@@ -20,7 +20,8 @@ interface StyleProps {
 const useStyles = makeStyles<Theme, StyleProps>((theme) => ({
   root: {
     minHeight: "100vh",
-    maxWidth: 1400,
+    maxWidth: 1600,
+    padding: 0,
     display: "flex",
     flexDirection: (styleProps) => (styleProps.rowDirection ? "row" : "column"),
     alignItems: (styleProps) => (styleProps.centered ? "center" : "flex-start"),
@@ -51,7 +52,7 @@ const Page: FunctionComponent<PageProps> = ({
 
   return (
     <Container className={classes.root}>
-      <Box width={"100%"} height={"80px"}></Box>
+      {/*<Box width={"100%"} height={"80px"}/>*/}
       {pageTitle && <Box className={classes.titleBlock}>{pageTitle}</Box>}
       {children}
     </Container>
