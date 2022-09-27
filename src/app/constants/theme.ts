@@ -31,6 +31,9 @@ import { createTheme } from "@material-ui/core";
     background: {
       paper:"#f6f5f5",
       default: "#FFF"
-    }
+    },
   },
+   typography: {
+    fontFamily: "Rubic",
+   }
 })

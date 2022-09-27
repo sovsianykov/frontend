@@ -4,18 +4,26 @@ import { filteredProducts } from "../../../store/selectors";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks/useAppDispatch";
 import { add } from "../../../store/ducks";
 import Product from "../../../shared/components/Product/Product";
+import { makeStyles } from "@material-ui/styles";
+
+const useStyles = makeStyles(() =>({
+   root: {
+     maxWidth: 1400,
+     margin:"0 auto",
+   }
+}))
 
 
 const ProductsGrid = () => {
   const dispatch = useAppDispatch()
   const { products ,isLoading } = useAppSelector(filteredProducts)
-
+  const classes = useStyles()
   const onAddToCartHandler = useCallback((product)=>{
     dispatch(add(product))
   },[dispatch])
 
   return (
-    <Grid container style={{ maxWidth: 1400, margin:"0 auto"}} spacing={1}>
+    <Grid container spacing={1} className={classes.root}>
       {isLoading ? (
         <LinearProgress />
       ) : (

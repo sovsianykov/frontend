@@ -2,6 +2,9 @@
 @font-face {
   font-family: 'Rubic';
   src: local('Rubic'), url(./@assets/fonts/rubic/Rubik-Regular.ttf) format('opentype');
+}@font-face {
+  font-family: 'KaushanScript';
+  src: local('KaushanScript-Regular.ttf'), url(./@assets/fonts/KaushanScript-Regular/KaushanScript-Regular.ttf) format('opentype');
 }
 
 *,

@@ -7,7 +7,7 @@ import FiltersBar from "./containers/FiltersBar/FiltersBar";
 
 const Home = () => {
   return (
-    <Page >
+    <Page>
        <FiltersBar/>
        <ProductsGrid/>
     </Page>

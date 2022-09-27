@@ -10,11 +10,11 @@ const useStyles = makeStyles(()=>({
     width: "100%",
     height:"100vh",
     overflow:"hidden",
-    backgroundImage: `url(${bg})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    background: `url(${bg}) center center/cover`,
+    position: "relative",
+    zIndex:100,
+    top: 0
   }
-
 }))
 
 
