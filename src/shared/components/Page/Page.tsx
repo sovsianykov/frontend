@@ -52,7 +52,7 @@ const Page: FunctionComponent<PageProps> = ({
 
   return (
     <Container className={classes.root}>
-      {/*<Box width={"100%"} height={"80px"}/>*/}
+      <Box width={"100%"} height={"60px"}/>
       {pageTitle && <Box className={classes.titleBlock}>{pageTitle}</Box>}
       {children}
     </Container>
