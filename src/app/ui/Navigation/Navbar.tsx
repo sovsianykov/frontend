@@ -15,9 +15,9 @@ interface StyleProps {
 const useStyles = makeStyles<Theme,StyleProps>(() =>({
   root : {
     background:
-      ({color,pathname}) => color && (pathname === '/home')
-        ? "#3d2f09"
-        : "transparent",
+      ({color,pathname}) => !color && (pathname === '/home')
+        ? "transparent"
+        :  "#3d2f09",
        boxShadow: "none"
   },
   toolbar: {
@@ -47,7 +47,6 @@ const useStyles = makeStyles<Theme,StyleProps>(() =>({
 const Navbar:FunctionComponent = () => {
 
   const { pathname }  = useLocation()
-
   const [color, setColor] = useState(false)
   const classes = useStyles({pathname,color})
   const [anchor, setAnchor] = React.useState(null);
@@ -61,7 +60,6 @@ const Navbar:FunctionComponent = () => {
   },[])
 
    window.addEventListener('scroll',onColorChange)
-  console.log(color);
   const handleMenu = (event: any) => {
     setAnchor(event.currentTarget);
   };
