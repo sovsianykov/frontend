@@ -10,6 +10,7 @@ interface PageProps {
   background?: boolean;
   rowDirection?: boolean;
   withoutBg?:boolean;
+  withoutToolBar?:boolean;
 }
 interface StyleProps {
   centered?: boolean;
@@ -41,7 +42,7 @@ const Page: FunctionComponent<PageProps> = ({
   pageTitle,
   centered,
   rowDirection,
-  withoutBg,
+  withoutBg,withoutToolBar
 }) => {
   const stylePops = {
     centered,
@@ -52,7 +53,7 @@ const Page: FunctionComponent<PageProps> = ({
 
   return (
     <Container className={classes.root}>
-      <Box width={"100%"} height={"60px"}/>
+      {!withoutToolBar && <Box sx={{width:"100%",height: 80}}/>}
       {pageTitle && <Box className={classes.titleBlock}>{pageTitle}</Box>}
       {children}
     </Container>

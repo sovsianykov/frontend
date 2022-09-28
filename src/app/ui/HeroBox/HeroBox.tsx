@@ -23,12 +23,11 @@ const useStyles = makeStyles(() =>({
       width: '100%',
       height: '100%',
       position: "absolute",
-      opacity: 0.3,
+      opacity: 0.4,
       top: 0,
       left: 0,
       zIndex: 10,
-      backgroundImage: "linear-gradient(to right,#3d2f09,sepia)",
-      backgroundColor: "#333"
+      background: "linear-gradient(black 20%, transparent 80%)",
     },
   },
    title: {

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useCallback, useRef } from "react";
+import React, { FunctionComponent, useCallback, useRef, useState } from "react";
 import { AppBar, Container, IconButton, Menu, Theme, Toolbar, Typography, useMediaQuery } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import NavbarMenu from "./NavbarMenu";
@@ -8,12 +8,17 @@ import { makeStyles } from "@material-ui/styles";
 import { Link, useLocation } from "react-router-dom";
 
 interface StyleProps {
-  pathname: string
+  pathname: string;
+  color: boolean;
 }
 
 const useStyles = makeStyles<Theme,StyleProps>(() =>({
   root : {
-    background: "#3d2f09",
+    background:
+      ({color,pathname}) => color && (pathname === '/home')
+        ? "#3d2f09"
+        : "transparent",
+       boxShadow: "none"
   },
   toolbar: {
     justifyContent: ({pathname})=> pathname === '/'? 'center' : 'flex-start',
@@ -30,7 +35,9 @@ const useStyles = makeStyles<Theme,StyleProps>(() =>({
       color: "red"
      },
     "&:hover" : {
-      color:"gold"
+      color:"gold",
+      letterSpacing:"0.21rem",
+
     }
   }
 
@@ -40,13 +47,22 @@ const useStyles = makeStyles<Theme,StyleProps>(() =>({
 const Navbar:FunctionComponent = () => {
 
   const { pathname }  = useLocation()
-  const classes = useStyles({pathname})
 
+  const [color, setColor] = useState(false)
+  const classes = useStyles({pathname,color})
   const [anchor, setAnchor] = React.useState(null);
   const open = Boolean(anchor);
 
-  const handleMenu = (event: any) => {
+  const onColorChange = useCallback(()=>{
+        if (window.scrollY >= 80) {
+          setColor(true)
+        } else {setColor(false)  }
 
+  },[])
+
+   window.addEventListener('scroll',onColorChange)
+  console.log(color);
+  const handleMenu = (event: any) => {
     setAnchor(event.currentTarget);
   };
 

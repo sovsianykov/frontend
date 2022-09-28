@@ -8,7 +8,7 @@ import HeroBox from "../../app/ui/HeroBox/HeroBox";
 
 const Home = () => {
   return (
-    <Page>
+    <Page withoutToolBar >
       <HeroBox/>
        <FiltersBar/>
       <ProductsGrid/>
