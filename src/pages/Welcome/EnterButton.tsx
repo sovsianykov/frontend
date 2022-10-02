@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../app/ApprRoutes/AppRoutes";
+import { theme } from "../../app/constants/theme";
 
 
 interface EnterButtonProps {
@@ -16,6 +17,9 @@ const useStyles = makeStyles(()=>({
     position:"absolute",
     top:200,
     right: 200,
+    [theme.breakpoints.down('sm')]: {
+      top: "15vh",
+    },
     borderRadius: "30px",
     background: "#3d2f09",
     boxShadow:" 0 0 5px #f0d27f",

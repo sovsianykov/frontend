@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../../app/hooks/useAppDispatc
 import { add } from "../../../store/ducks";
 import Product from "../../../shared/components/Product/Product";
 import { makeStyles } from "@material-ui/styles";
+import FiltersBar from "./FiltersBar/FiltersBar";
 
 const useStyles = makeStyles(() =>({
    root: {
@@ -24,6 +25,9 @@ const ProductsGrid = () => {
 
   return (
     <Grid container spacing={1} className={classes.root}>
+      <Grid item xs={12}>
+        <FiltersBar/>
+      </Grid>
       {isLoading ? (
         <LinearProgress />
       ) : (

@@ -10,21 +10,28 @@ import { Link, useLocation } from "react-router-dom";
 interface StyleProps {
   pathname: string;
   color: boolean;
+  isMobile: boolean;
 }
 
 const useStyles = makeStyles<Theme,StyleProps>(() =>({
   root : {
+    zIndex:1000,
     background:
       ({color,pathname}) => !color && (pathname === '/home')
         ? "transparent"
         :  "#3d2f09",
-       boxShadow: "none"
+       boxShadow: "none",
+    position:"fixed",
+    top:0
   },
   toolbar: {
-    justifyContent: ({pathname})=> pathname === '/'? 'center' : 'flex-start',
+    justifyContent: ({pathname})=> pathname === '/'? 'center' : 'spase-between',
+    zIndex:50,
+    alignItems:"center",
+    padding:0
   },
   logo : {
-    fontSize: "24px",
+    fontSize: ({isMobile})=> isMobile? '18px' : '24px',
     fontWeight: 400,
     letterSpacing:"0.2rem",
     fontFamily:"KaushanScript",
@@ -37,7 +44,6 @@ const useStyles = makeStyles<Theme,StyleProps>(() =>({
     "&:hover" : {
       color:"gold",
       letterSpacing:"0.21rem",
-
     }
   }
 
@@ -48,7 +54,7 @@ const Navbar:FunctionComponent = () => {
 
   const { pathname }  = useLocation()
   const [color, setColor] = useState(false)
-  const classes = useStyles({pathname,color})
+
   const [anchor, setAnchor] = React.useState(null);
   const open = Boolean(anchor);
 
@@ -71,22 +77,24 @@ const Navbar:FunctionComponent = () => {
     }
   }, [ref]);
   const isMobile = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("xs")
+    theme.breakpoints.down("sm")
   );
+  const classes = useStyles({pathname,color,isMobile})
   return (
     <AppBar className={classes.root} >
       <Container>
         <Toolbar className={classes.toolbar}>
           <Link to={AppRoutes.Welcome}>
-            <Typography className={classes.logo}>
+            <Typography variant='h5' className={classes.logo}>
               <span>M</span>
-              ERN <span>s</span>hopping <span>c</span>art
+              ERN <span>s</span>hopping
+               <span> c</span>art
             </Typography>
           </Link>
           {isMobile ? (
             <>
               <IconButton onClick={handleMenu}>
-                <MenuIcon style={{ color: "#FFF" }} />
+                {pathname === "/" ? "" : <MenuIcon style={{ color: "#FFF", alignSelf:"flex-end" }} />}
               </IconButton>
               <Menu
                 id="menu-appbar"
