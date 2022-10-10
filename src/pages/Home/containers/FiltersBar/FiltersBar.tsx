@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { Box } from "@material-ui/core";
 import { useAppDispatch } from "../../../../app/hooks/useAppDispatch";
 import { category } from "../../../../store/ducks";
@@ -27,10 +27,8 @@ const useStyles = makeStyles(() => ({
 const FiltersBar = () => {
   const classes = useStyles();
   const dispatch = useAppDispatch();
-  const onCategoryChange = useCallback((categoryName: string) => {
-    dispatch(category(categoryName));
-  }, [dispatch]);
 
+  const onCategoryChange = (categoryName: string) => dispatch(category(categoryName));
 
   return (
     <AppBar style={{ position: "sticky", background: "transparent", marginBottom: 10, zIndex: 0 }} >

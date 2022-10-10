@@ -5,6 +5,7 @@ import { Box, Button, Card, Theme, Typography } from "@material-ui/core";
 import { AddShoppingCart } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { theme } from "../../../app/constants/theme";
+import Rate from "../Rate/Rate";
 
 interface ProductProps {
   product: ProductItem;
@@ -32,7 +33,7 @@ const useStyles = makeStyles<Theme,StyleProps>(() => ({
   imageWrapper: {
     marginTop: theme.spacing(1),
     width: 280,
-    height: 200,
+    height: 240,
     overflow: "hidden",
     opacity: 0.98,
     borderRadius: 5,
@@ -71,8 +72,9 @@ const Product: FunctionComponent<ProductProps> = ({ product,onAddToCart,added })
       <Box className={classes.imageWrapper}>
         <img src={product.imageUrl} alt={product.title} />
       </Box>
-      <Box alignSelf="flex-start" mt={2}>
-        price : ${product.price}
+      <Box  mt={2}  sx={{ display:"flex", justifyContent:"space-around",width: 250}}>
+       <p> price : ${product.price}</p>
+        <Rate rate={product.rate? product.rate : 3 } />
       </Box>
       <Box className={classes.actionBlock}>
         <Link to={`/product/${product._id}`}>

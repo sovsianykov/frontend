@@ -56,7 +56,7 @@ const Detail = () => {
   const classes = useStyles({ matches });
 
   return (
-    <Page pageTitle={product!.title} centered>
+    <Page pageTitle={product!.title} centered padding>
       <Box className={classes.root}>
         <Box className={classes.leftBlock}>
           <Box className={classes.imageWrapper}>

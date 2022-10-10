@@ -4,6 +4,7 @@ import Providers from "./app/Providers/ProvidersUtil";
 import Routing from "./app/Routing/Routing";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "./app/ui/Navigation/Footer";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Navbar />
       <Routing />
       <ToastContainer/>
+      <Footer/>
     </Providers>
   );
 }

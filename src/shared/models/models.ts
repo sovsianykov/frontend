@@ -1,4 +1,6 @@
- export interface ProductItem {
+
+
+export interface ProductItem {
     _id : string ;
     title: string;
     desc: string;
@@ -7,13 +9,15 @@
     category:string;
     quantity: number;
     added?:boolean;
+    rate: number,
  }
 
- export interface ListOptionsItem {
-     id: string;
-     label: string;
-     filterOption: string;
- }
- export interface ListOptions {
-     listItems: ListOptionsItem[];
- }
+ //
+ // export interface ListOptionsItem {
+ //     id: string;
+ //     label: string;
+ //     filterOption: string;
+ // }
+ // export interface ListOptions {
+ //     listItems: ListOptionsItem[];
+ // }

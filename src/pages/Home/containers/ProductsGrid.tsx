@@ -28,7 +28,7 @@ const ProductsGrid = () => {
       <Grid item xs={12}>
         <FiltersBar/>
       </Grid>
-      {isLoading ? (
+      {isLoading  ? (
         <LinearProgress />
       ) : (
         products.map((product) => (
