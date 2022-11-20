@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 import Star from "./Star";
 
 interface RateProps {
-  rate: ProductItem;
+  rate: number;
 }
 
 const useStyles = makeStyles(() => ({

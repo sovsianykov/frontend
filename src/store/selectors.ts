@@ -13,7 +13,6 @@ import { ProductItem } from "../shared/models/models";
   ({ products ,isLoading}, selectedCategory ) =>{
     let selectedProducts:ProductItem[] =[...products]
        if (!isLoading && !!selectedCategory ) {
-         console.log(selectedCategory);
          selectedProducts = [...products].filter(p => p.category === selectedCategory)
        }
     return {

@@ -74,7 +74,7 @@ const Product: FunctionComponent<ProductProps> = ({ product,onAddToCart,added })
       </Box>
       <Box  mt={2}  sx={{ display:"flex", justifyContent:"space-around",width: 250}}>
        <p> price : ${product.price}</p>
-        <Rate rate={product.rate? product.rate : 3 } />
+        <Rate rate={product.rate ? product.rate : 3 } />
       </Box>
       <Box className={classes.actionBlock}>
         <Link to={`/product/${product._id}`}>
