@@ -29,7 +29,10 @@ const ProductsTable = () => {
   const dispatch = useAppDispatch();
   const onDeleteHandler = useCallback(
     (id) => {
-      dispatch(deleteProduct(id));
+      const sign =  prompt('input the password')
+      if (sign === process.env.REACT_APP_SECRET) {
+        dispatch(deleteProduct(id));
+      }
     },
     [dispatch]
   );
