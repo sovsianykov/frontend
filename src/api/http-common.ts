@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const request = axios.create({
-  baseURL:'https://mern-fullstack-shop.herokuapp.com/api/',
+  baseURL:'https://mern-store-7doz.onrender.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
