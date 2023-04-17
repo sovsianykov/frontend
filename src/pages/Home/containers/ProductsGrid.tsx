@@ -6,6 +6,7 @@ import { add } from "../../../store/ducks";
 import Product from "../../../shared/components/Product/Product";
 import { makeStyles } from "@material-ui/styles";
 import FiltersBar from "./FiltersBar/FiltersBar";
+import { useFetchAllProducts } from "../../../app/hooks/useFetchAllProducts";
 
 const useStyles = makeStyles(() =>({
    root: {
@@ -16,6 +17,7 @@ const useStyles = makeStyles(() =>({
 
 
 const ProductsGrid = () => {
+  useFetchAllProducts()
   const dispatch = useAppDispatch()
   const { products ,isLoading } = useAppSelector(filteredProducts)
   const classes = useStyles()

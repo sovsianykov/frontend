@@ -25,7 +25,6 @@ const useStyles = makeStyles(()=>({
 
 
 const Welcome = () => {
-
   useFetchAllProducts()
   const classes = useStyles();
   return (

@@ -4,50 +4,43 @@ import { Link } from "react-router-dom";
 import { AppRoutes } from "../../app/ApprRoutes/AppRoutes";
 import { theme } from "../../app/constants/theme";
 
-
 interface EnterButtonProps {
   title: string;
 }
 
-
-const useStyles = makeStyles(()=>({
+const useStyles = makeStyles(() => ({
   root: {
     width: 150,
     height: 40,
-    position:"absolute",
-    top:200,
+    position: "absolute",
+    top: 200,
     right: 200,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       top: "15vh",
     },
     borderRadius: "30px",
     background: "#3d2f09",
-    boxShadow:" 0 0 5px #f0d27f",
-    border:'none',
+    boxShadow: " 0 0 5px #f0d27f",
+    border: "none",
     fontWeight: 400,
-    fontSize:"20px",
-    letterSpacing:"0.09rem",
+    fontSize: "20px",
+    letterSpacing: "0.09rem",
     color: "#f0d27f",
     cursor: "pointer",
-    transition:"0.15s ease-in-out",
-    "&:hover" : {
+    transition: "0.15s ease-in-out",
+    "&:hover": {
       background: "#f0d27f",
       color: "#3d2f09",
-      boxShadow:" 0 0 5px #3d2f09",
+      boxShadow: " 0 0 5px #3d2f09",
+    },
+  },
+}));
 
-
-    }
-  }
-
-}))
-
-
-
-const EnterButton:FunctionComponent<EnterButtonProps> = ({title}) => {
-  const classes = useStyles()
+const EnterButton: FunctionComponent<EnterButtonProps> = ({ title }) => {
+  const classes = useStyles();
   return (
     <Link to={AppRoutes.Home}>
-      <button type='button' className={classes.root}>
+      <button type="button" className={classes.root}>
         {title}
       </button>
     </Link>

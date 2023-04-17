@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const request = axios.create({
-  baseURL:'https://mern-store-7doz.onrender.com/api',
+  baseURL: process.env.REACT_APP_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
