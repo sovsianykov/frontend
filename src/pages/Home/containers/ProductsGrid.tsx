@@ -1,23 +1,25 @@
 import React, { memo, useCallback } from "react";
-import { Grid, LinearProgress } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { filteredProducts } from "../../../store/selectors";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks/useAppDispatch";
 import { add } from "../../../store/ducks";
 import Product from "../../../shared/components/Product/Product";
 import { makeStyles } from "@material-ui/styles";
 import FiltersBar from "./FiltersBar/FiltersBar";
-import { useFetchAllProducts } from "../../../app/hooks/useFetchAllProducts";
+import { CircularProgress } from "@mui/material";
 
 const useStyles = makeStyles(() =>({
    root: {
      maxWidth: 1400,
      margin:"0 auto",
+   },
+   circular : {
+     margin: "30% auto"
    }
 }))
 
 
 const ProductsGrid = () => {
-  useFetchAllProducts()
   const dispatch = useAppDispatch()
   const { products ,isLoading } = useAppSelector(filteredProducts)
   const classes = useStyles()
@@ -31,7 +33,7 @@ const ProductsGrid = () => {
         <FiltersBar/>
       </Grid>
       {isLoading  ? (
-        <LinearProgress />
+        <CircularProgress className={classes.circular} />
       ) : (
         products.map((product) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={product._id} >

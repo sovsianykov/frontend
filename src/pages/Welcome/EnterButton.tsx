@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../app/ApprRoutes/AppRoutes";
 import { theme } from "../../app/constants/theme";
+import { useAppDispatch } from "../../app/hooks/useAppDispatch";
+import { fetchAllProducts } from "../../store/thunks";
 
 interface EnterButtonProps {
   title: string;
@@ -37,10 +39,11 @@ const useStyles = makeStyles(() => ({
 }));
 
 const EnterButton: FunctionComponent<EnterButtonProps> = ({ title }) => {
+  const dispatch = useAppDispatch()
   const classes = useStyles();
   return (
     <Link to={AppRoutes.Home}>
-      <button type="button" className={classes.root}>
+      <button type="button" className={classes.root} onClick={() => dispatch(fetchAllProducts())}>
         {title}
       </button>
     </Link>
